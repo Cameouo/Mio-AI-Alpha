@@ -1,0 +1,58 @@
+import time
+import webbrowser
+
+import pywhatkit as pwt
+
+Commands = ["Commands:-", "Youtube", "Music", "Time", "Calculator", "Search Internet",
+            "Instagram", "Spotify Web", " ", "How Can I Help You?"]
+print(*Commands, sep="\n")
+Command1 = input("Open ")
+
+Command1 = str(Command1)
+if Command1 == "Youtube":
+    Youtube = webbrowser.open("Youtube.com")
+    print("Sure!", Youtube)
+elif Command1 == "Music":
+    Music = input("Music:-")
+    song = pwt.playonyt(Music)
+elif Command1 == "Time":
+    Time = time.strftime("%I:%M %p")
+    print(Time)
+elif Command1 == "Calculator":
+    N1 = input("1 Number ")
+    N2 = input("2 Number ")
+
+    N1 = float(N1)
+    N2 = float(N2)
+
+    Op = input("Operation ")
+
+    if Op == "+":
+        print(N1 + N2)  # <---- ADDITION
+    elif Op == "-":
+        print(N1 - N2)  # <-----SUBTRACTION
+    elif Op == "*":
+        print(N1 * N2)  # <-----MULTIPLICATION
+    elif Op == "/":
+        print(N1 / N2)  # <-----DIVISION
+    elif Op == "//":  # ADVANCED CALCULATIONS
+        print(N1 // N2)  # <-----FLOOR DIVISION
+    elif Op == "**":
+        print(N1 ** N2)  # <-----EXPONENT
+    elif Op == "%":
+        print(N1 % N2)  # <-----MODULUS
+    else:
+        print("Maybe Try Something in my capabilities?")
+        print("Operations:- + , - , * , / , // , ** ,% ")
+elif Command1 == "Search Internet":
+    User_Input = input("Google Search :-")
+    print("Searching...")
+    pwt.search(User_Input)
+elif Command1 == "Instagram":
+    instagram = "https://www.instagram.com/"
+    webbrowser.open_new(instagram)
+elif Command1 == "Spotify Web":
+    spotify = "https://open.spotify.com/"
+    webbrowser.open_new(spotify)
+else:
+    print("Sorry,The command might be invalid. You can check commands mentioned above!  ")

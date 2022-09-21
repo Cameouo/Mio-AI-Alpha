@@ -1,31 +1,62 @@
 import time
-import webbrowser
-
 import pywhatkit as pwt
+import webbrowser as wb
 
-Commands = ["Commands:-", "Youtube", "Music", "Time", "Calculator", "Search Internet",
-            "Instagram", "Spotify Web", " ", "How Can I Help You?"]
-print(*Commands, sep="\n")
-Command1 = input("Open ")
 
-Command1 = str(Command1)
-if Command1 == "Youtube":
-    Youtube = webbrowser.open("Youtube.com")
-    print("Sure!", Youtube)
-elif Command1 == "Music":
-    Music = input("Music:-")
-    song = pwt.playonyt(Music)
-elif Command1 == "Time":
+def surl():
+    return "\u001b[32;1m" + "Searching URL..."
+
+
+print("\u001b[34m" + "I'm Ken!, How Can I Help You?")
+
+Command = input("\u001b[97m" + "Hey,")
+
+if Command == "Time":
+    print("\u001b[33;1m" + "Checking Local Time...")
+    time.sleep(1)
+    print("\u001b[33;1m" + "Current Time:")
     Time = time.strftime("%I:%M %p")
+    time.sleep(0.8)
     print(Time)
-elif Command1 == "Calculator":
-    N1 = input("1 Number ")
-    N2 = input("2 Number ")
+
+
+elif Command == "Open Youtube":
+    URL = "https://www.youtube.com/"
+    time.sleep(2)
+    print(surl())
+    time.sleep(1)
+    print("\u001b[32;1m" + "Opened URL'https://www.youtube.com/'")
+    print("\u001b[32;1m" + "Playing...")
+    wb.open(URL)
+
+elif Command == "Play Music":
+    music = input("Name ")
+    time.sleep(2)
+    print("\u001b[33;1m" + "Redirecting...")
+    print("\u001b[33;1m" + "Playing")
+    time.sleep(1)
+    pwt.playonyt(music)
+
+elif Command == "Open Github":
+    URL_G = "https://github.com/"
+    wb.open(URL_G)
+    print(surl())
+
+elif Command == "Search Video":
+    music = input("Search,")
+    time.sleep(2)
+    print("\u001b[33;1m" + "Redirecting...")
+    time.sleep(1)
+    pwt.playonyt(music)
+
+elif Command == "Calculate":
+    N1 = input("\u001b[4m" + "Digit 1,")
+    N2 = input("\u001b[4m" + "Digit 2, ")
 
     N1 = float(N1)
     N2 = float(N2)
 
-    Op = input("Operation ")
+    Op = input("\u001b[35;1m" + "Operation,")
 
     if Op == "+":
         print(N1 + N2)  # <---- ADDITION
@@ -44,15 +75,3 @@ elif Command1 == "Calculator":
     else:
         print("Maybe Try Something in my capabilities?")
         print("Operations:- + , - , * , / , // , ** ,% ")
-elif Command1 == "Search Internet":
-    User_Input = input("Google Search :-")
-    print("Searching...")
-    pwt.search(User_Input)
-elif Command1 == "Instagram":
-    instagram = "https://www.instagram.com/"
-    webbrowser.open_new(instagram)
-elif Command1 == "Spotify Web":
-    spotify = "https://open.spotify.com/"
-    webbrowser.open_new(spotify)
-else:
-    print("Sorry,The command might be invalid. You can check commands mentioned above!  ")

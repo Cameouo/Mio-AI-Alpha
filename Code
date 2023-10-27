@@ -7,7 +7,7 @@ def surl():
     return "\u001b[32;1m" + "Searching URL..."
 
 
-print("\u001b[34m" + "I'm Ken!, How Can I Help You?")
+print("\u001b[34m" + Hello, How Can I Help You?")
 
 Command = input("\u001b[97m" + "Hey,")
 
